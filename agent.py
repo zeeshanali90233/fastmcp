@@ -43,7 +43,7 @@ llm = ChatGroq(
     max_tokens=None,
     timeout=None,
     max_retries=2,
-    api_key="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"
+    api_key="GROQ_API_KEY",
 )
 
 memory = InMemorySaver()
