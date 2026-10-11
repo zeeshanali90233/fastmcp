@@ -5,6 +5,7 @@ from langchain_core.tools import StructuredTool
 import dotenv
 import asyncio
 from fastmcp import Client
+import os
 
 dotenv.load_dotenv()
 
@@ -43,7 +44,7 @@ llm = ChatGroq(
     max_tokens=None,
     timeout=None,
     max_retries=2,
-    api_key="GROQ_API_KEY",
+    api_key=os.getenv("GROQ_API_KEY"),
 )
 
 memory = InMemorySaver()
@@ -57,7 +58,7 @@ You are a helpful assistant.
 """
 )
 
-user_input = "Get the weather for New York"
+user_input = "Pls tell weather of Attock Punjab and then send email to moatasimbillah90@gmail.com"
 response = helpful_assistant.ainvoke(
     {"messages": [{"role": "user", "content": user_input}]},
     config={"configurable": {"thread_id": "123"}}
